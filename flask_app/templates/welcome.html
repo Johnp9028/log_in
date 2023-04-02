@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="text-center shadow-lg p-3 mb-5 bg-body-tertiary rounded fst-italic">Welcome!</h2>
+
+
+    <div class="d-flex text-center justify-content-evenly border solid red">
+        <form action="/register" method="post">
+            <h2 class="shadow-lg p-3 mb-5 bg-body-tertiary rounded text-decoration-underline">Register</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert" role="alert">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="form-control placeholder bg-info " placeholder="first name">
+
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name"class="form-control placeholder bg-info" placeholder="last name">
+
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control placeholder bg-info" placeholder="name@example.com" >
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control placeholder bg-info" placeholder="top secret password">
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirm Password:</label>
+                <input type="password" name="confirm"class="form-control placeholder bg-info" placeholder="confirm password">
+            </div>
+            <input type="submit" value="Register" class="btn btn-dark fst-italic">
+        </form>
+
+        <form action="/login" method="post">
+            <h2 class="shadow-lg p-3 mb-5 bg-body-tertiary rounded text-decoration-underline">Login</h2>
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group ">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class=" form-control placeholder bg-success">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password"  class=" form-control placeholder bg-success">
+            </div>
+            
+            <input type="submit" value="Login" class="btn btn-dark fst-italic">
+        </form>
+    </div>
+
+
+</body>
+</html>
